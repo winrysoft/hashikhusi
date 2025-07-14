@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Responsive Navbar with Hamburger Menu</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Bootstrap Icons CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-white">
+    <!-- Main Navbar -->
+    <nav class="w-full px-4 py-3 shadow-md bg-white">
+      <div
+        class="flex flex-row items-center justify-between space-x-2 md:space-x-6 flex-wrap"
+      >
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+          <img src="images/logo.png" alt="Logo" class="h-10 object-contain" />
+        </div>
+
+        <!-- Search Bar -->
+        <div
+          class="flex flex-grow items-center border border-green-700 rounded-full overflow-hidden"
+        >
+          <!-- Dropdown only on md+ -->
+          <select
+            class="hidden md:block px-4 py-2 outline-none border-r border-green-700 bg-white text-black"
+          >
+            <option>All</option>
+            <option>সার</option>
+            <option>বীজ</option>
+          </select>
+
+          <input
+            type="text"
+            placeholder="খুঁজুন"
+            class="flex-grow px-3 py-2 outline-none bg-white text-sm"
+          />
+          <button class="px-3 text-green-800">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+
+        <!-- Cart & Call -->
+        <div class="flex items-center space-x-4">
+          <!-- Cart Icon -->
+          <div class="relative">
+            <i class="bi bi-bag text-2xl text-black"></i>
+            <span
+              class="absolute -top-2 -right-2 bg-green-800 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"
+              >0</span
+            >
+          </div>
+
+          <!-- Call Button (md only) -->
+          <button
+            class="hidden md:flex bg-green-800 hover:bg-green-700 text-white px-4 py-2 rounded-full items-center space-x-1"
+          >
+            <i class="bi bi-telephone-fill"></i>
+            <span>Call Us</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Category Hamburger Toggle (Visible on small screens) -->
+    <div
+      class="bg-green-800 text-white px-4 py-2 flex items-center justify-between md:hidden"
+    >
+      <span class="font-semibold text-lg">Categories</span>
+      <button
+        id="hamburgerBtn"
+        aria-label="Toggle category menu"
+        class="text-white text-2xl focus:outline-none"
+      >
+        <i class="bi bi-list"></i>
+      </button>
+    </div>
+
+    <!-- Responsive Category Menu -->
+    <div id="categoryMenu" class="bg-green-800 text-white md:block hidden">
+      <div
+        class="container mx-auto px-4 py-2 flex flex-col space-y-2 text-sm sm:text-base font-semibold md:flex-row md:space-x-4 md:space-y-0 whitespace-nowrap overflow-x-auto"
+      >
+        <a href="#" class="hover:underline">Home</a>
+        <span class="hidden md:inline border-r border-white h-5"></span>
+
+        <a href="#" class="hover:underline">Combo Offer</a>
+        <span class="hidden md:inline border-r border-white h-5"></span>
+
+        <a href="#" class="hover:underline">অর্গানিক</a>
+        <span class="hidden md:inline border-r border-white h-5"></span>
+
+        <a href="#" class="hover:underline">গুড় - পাটালি</a>
+        <span class="hidden md:inline border-r border-white h-5"></span>
+
+        <a href="#" class="hover:underline">ঘুঁটা মসলা</a>
+        <span class="hidden md:inline border-r border-white h-5"></span>
+
+        <a href="#" class="hover:underline">ঘি ও তেল</a>
+        <span class="hidden md:inline border-r border-white h-5"></span>
+
+        <a href="#" class="hover:underline">নাড়ু</a>
+        <span class="hidden md:inline border-r border-white h-5"></span>
+
+        <a href="#" class="hover:underline">নারিকেল তেল</a>
+        <span class="hidden md:inline border-r border-white h-5"></span>
+
+        <a href="#" class="hover:underline">পার্সোনাল কেয়ার</a>
+        <span class="hidden md:inline border-r border-white h-5"></span>
+
+        <a href="#" class="hover:underline">প্রিমিয়াম বাদাম</a>
+        <span class="hidden md:inline border-r border-white h-5"></span>
+
+        <a href="#" class="hover:underline">মধু</a>
+      </div>
+    </div>
+
+    <!-- slider -->
+
+    <section class="slider-img-section">
+      <div class="wrapper">
+        <div class="row">
+          <div class="col-md-8 col-sm-12">
+            <div
+              id="carouselExampleSlidesOnly"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="..." class="d-block w-100" alt="..." />
+                </div>
+                <div class="carousel-item">
+                  <img src="..." class="d-block w-100" alt="..." />
+                </div>
+                <div class="carousel-item">
+                  <img src="..." class="d-block w-100" alt="..." />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const hamburgerBtn = document.getElementById("hamburgerBtn");
+      const categoryMenu = document.getElementById("categoryMenu");
+
+      hamburgerBtn.addEventListener("click", () => {
+        // Toggle menu visibility
+        if (categoryMenu.classList.contains("hidden")) {
+          categoryMenu.classList.remove("hidden");
+          hamburgerBtn.innerHTML = '<i class="bi bi-x"></i>'; // Change icon to X
+        } else {
+          categoryMenu.classList.add("hidden");
+          hamburgerBtn.innerHTML = '<i class="bi bi-list"></i>'; // Change icon to hamburger
+        }
+      });
+    </script>
+  </body>
+</html>
