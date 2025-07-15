@@ -26,7 +26,79 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <style></style>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* .container {
+  width: 1140px !important;
+} */
+
+      .header-logo {
+        width: 160px !important;
+      }
+
+      .hoverzoom {
+        /* transition: 2s all; */
+      }
+
+      .hoverzoom:hover {
+        transform: scale(1.2);
+      }
+
+      /* hamburber menu */
+      body {
+        font-family: "Noto Sans Bengali", sans-serif;
+      }
+      .hamburger-line {
+        transition: all 0.3s ease;
+      }
+      .hamburger-active .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .hamburger-active .hamburger-line:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger-active .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
+      .mobile-menu {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+      }
+      .mobile-menu.active {
+        transform: translateX(0);
+      }
+      .hover-scale-container {
+        transition: transform 0.3s ease;
+      }
+      .hover-scale-item:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+      }
+      .hoverzoom {
+        transition: transform 0.3s ease;
+      }
+      .hoverzoom:hover {
+        transform: scale(1.05);
+      }
+      .swiper-button-next,
+      .swiper-button-prev {
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .swiper-button-next:after,
+      .swiper-button-prev:after {
+        font-size: 18px;
+      }
+      .swiper-pagination-bullet {
+        background: rgba(255, 255, 255, 0.5);
+      }
+      .swiper-pagination-bullet-active {
+        background: white;
+      }
+    </style>
   </head>
   <body class="bg-gray-50">
     <!-- Top Navigation -->
@@ -35,7 +107,11 @@
         <div class="flex items-center justify-between h-16">
           <!-- Logo -->
           <div class="flex items-center">
-            <img src="images/logo.png" class="header-logo" alt="" />
+            <img
+              src="./logos/Hasi khusi logo-01.png"
+              class="header-logo"
+              alt=""
+            />
           </div>
 
           <!-- Search Bar (Hidden on mobile) -->
@@ -328,9 +404,11 @@
     </div>
 
     <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <main class="">
       <!-- Hero Section -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
+      >
         <!-- Left Side - Automatic Slider -->
         <div class="relative">
           <div
@@ -378,10 +456,254 @@
       </div>
 
       <!-- Section Title -->
-      <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold text-green-800 mb-4">বিশেষ মূল্য</h2>
-        <div class="w-24 h-1 bg-green-600 mx-auto"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h2
+          style="font-size: 45px; color: #016738; font-family: 'AdorNoirrit'"
+          class="text-4xl text-green-800 mb-4"
+        >
+          বিশেষ মূল্য
+        </h2>
+        <!-- <div class="w-24 h-1 bg-green-600 mx-auto"></div> -->
       </div>
+
+      <!-- Product Cards Section -->
+      <section
+        style="display: flex; align-items: center; justify-content: center"
+        class="mx-auto mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-emerald-100"
+      >
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Product Card 1 -->
+          <div
+            style="width: 300px"
+            class="discount-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          >
+            <div class="flex">
+              <!-- Product Image -->
+              <div class="w-32 h-32 flex-shrink-0">
+                <img
+                  src="images/product.jpg"
+                  alt="Product 1"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <!-- Product Details -->
+              <div class="flex-1 p-4 flex flex-col justify-between">
+                <div>
+                  <h3 class="font-semibold text-gray-800 mb-2">
+                    প্রিমিয়াম সরষে খই
+                  </h3>
+                  <div class="flex items-center space-x-2 mb-3">
+                    <span class="text-green-600 font-bold text-lg">৳ 600</span>
+                    <span class="text-gray-400 line-through text-sm"
+                      >৳ 750</span
+                    >
+                  </div>
+                </div>
+                <button
+                  class="bg-green-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-green-700 transition-colors duration-200"
+                >
+                  পণ্য দেখুন
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Card 2 -->
+          <div
+            style="width: 300px"
+            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          >
+            <div class="flex">
+              <!-- Product Image -->
+              <div class="w-32 h-32 flex-shrink-0">
+                <img
+                  src="images/product.jpg"
+                  alt="Product 2"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <!-- Product Details -->
+              <div class="flex-1 p-4 flex flex-col justify-between">
+                <div>
+                  <h3 class="font-semibold text-gray-800 mb-2">সরিষার তেল</h3>
+                  <div class="flex items-center space-x-2 mb-3">
+                    <span class="text-green-600 font-bold text-lg">৳ 330</span>
+                    <span class="text-gray-400 line-through text-sm"
+                      >৳ 380</span
+                    >
+                  </div>
+                </div>
+                <button
+                  class="bg-green-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-green-700 transition-colors duration-200"
+                >
+                  পণ্য দেখুন
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Card 3 -->
+          <div
+            style="width: 300px"
+            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          >
+            <div class="flex">
+              <!-- Product Image -->
+              <div class="w-32 h-32 flex-shrink-0">
+                <img
+                  src="images/product.jpg"
+                  alt="Product 3"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <!-- Product Details -->
+              <div class="flex-1 p-4 flex flex-col justify-between">
+                <div>
+                  <h3 class="font-semibold text-gray-800 mb-2">বাদাম</h3>
+                  <div class="flex items-center space-x-2 mb-3">
+                    <span class="text-green-600 font-bold text-lg">৳ 700</span>
+                    <span class="text-gray-400 line-through text-sm"
+                      >৳ 900</span
+                    >
+                  </div>
+                </div>
+                <button
+                  class="bg-green-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-green-700 transition-colors duration-200"
+                >
+                  পণ্য দেখুন
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- New Section Title -->
+      <div
+        class="all_prd_btn_title max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-white"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        "
+      >
+        <div class="all_product_title">
+          <h3
+            class="deal_title"
+            style="font-size: 45px; color: #016738; font-family: 'AdorNoirrit'"
+          >
+            আমাদের পণ্য
+          </h3>
+        </div>
+        <div class="all_product_btn">
+          <a
+            href="/shop"
+            class="product_link"
+            style="
+              text-decoration: none;
+              color: #fff;
+              font-size: 16px;
+              transition: all 0.3s ease-in-out;
+              background: #016738;
+              padding: 10px 25px;
+              border-radius: 5px;
+              border: #016738;
+              width: 100%;
+              display: flex;
+              justify-content: center;
+            "
+            >সকল পণ্য</a
+          >
+        </div>
+      </div>
+
+      <!-- New Product Cards Section -->
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-white">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center"
+        >
+          <!-- New Product Card 1 -->
+          <div
+            style="width: 300px; height: 500px"
+            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+          >
+            <div class="aspect-square overflow-hidden">
+              <img
+                src="images/product.jpg"
+                alt="Arnica Shampoo"
+                class="w-full h-full object-cover hoverzoom"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-800 mb-3 text-center">
+                Arnica Shampoo
+              </h3>
+              <div class="flex items-center justify-center mb-4">
+                <span class="text-2xl font-bold text-green-600">৳ 190</span>
+              </div>
+              <button
+                class="w-full bg-green-600 text-white py-3 px-4 rounded text-lg font-medium hover:bg-green-700 transition-colors duration-200"
+              >
+                অর্ডার করুন
+              </button>
+            </div>
+          </div>
+
+          <!-- New Product Card 2 -->
+          <div
+            style="width: 300px; height: 500px"
+            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+          >
+            <div class="aspect-square overflow-hidden">
+              <img
+                src="images/product.jpg"
+                alt="Arnica Shampoo"
+                class="w-full h-full object-cover hoverzoom"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-800 mb-3 text-center">
+                Arnica Shampoo
+              </h3>
+              <div class="flex items-center justify-center mb-4">
+                <span class="text-2xl font-bold text-green-600">৳ 190</span>
+              </div>
+              <button
+                class="w-full bg-green-600 text-white py-3 px-4 rounded text-lg font-medium hover:bg-green-700 transition-colors duration-200"
+              >
+                অর্ডার করুন
+              </button>
+            </div>
+          </div>
+
+          <!-- New Product Card 3 -->
+          <div
+            style="width: 300px; height: 500px"
+            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+          >
+            <div class="aspect-square overflow-hidden">
+              <img
+                src="images/product.jpg"
+                alt="Arnica Shampoo"
+                class="w-full h-full object-cover hoverzoom"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-800 mb-3 text-center">
+                Arnica Shampoo
+              </h3>
+              <div class="flex items-center justify-center mb-4">
+                <span class="text-2xl font-bold text-green-600">৳ 190</span>
+              </div>
+              <button
+                class="w-full bg-green-600 text-white py-3 px-4 rounded text-lg font-medium hover:bg-green-700 transition-colors duration-200"
+              >
+                অর্ডার করুন
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <script>
