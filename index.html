@@ -18,6 +18,32 @@
             fontFamily: {
               bangla: ["Noto Sans Bengali", "sans-serif"],
             },
+            colors: {
+              primary: {
+                50: "#f0fdf4",
+                100: "#dcfce7",
+                200: "#bbf7d0",
+                300: "#86efac",
+                400: "#4ade80",
+                500: "#22c55e",
+                600: "#16a34a",
+                700: "#15803d",
+                800: "#166534",
+                900: "#14532d",
+              },
+              "brand-green": {
+                50: "#f0fdf4",
+                100: "#dcfce7",
+                200: "#bbf7d0",
+                300: "#86efac",
+                400: "#4ade80",
+                500: "#22c55e",
+                600: "#16a34a",
+                700: "#15803d",
+                800: "#166534",
+                900: "#14532d",
+              },
+            },
           },
         },
       };
@@ -26,79 +52,6 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
-
-      /* .container {
-  width: 1140px !important;
-} */
-
-      .header-logo {
-        width: 160px !important;
-      }
-
-      .hoverzoom {
-        /* transition: 2s all; */
-      }
-
-      .hoverzoom:hover {
-        transform: scale(1.2);
-      }
-
-      /* hamburber menu */
-      body {
-        font-family: "Noto Sans Bengali", sans-serif;
-      }
-      .hamburger-line {
-        transition: all 0.3s ease;
-      }
-      .hamburger-active .hamburger-line:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-      }
-      .hamburger-active .hamburger-line:nth-child(2) {
-        opacity: 0;
-      }
-      .hamburger-active .hamburger-line:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -6px);
-      }
-      .mobile-menu {
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
-      }
-      .mobile-menu.active {
-        transform: translateX(0);
-      }
-      .hover-scale-container {
-        transition: transform 0.3s ease;
-      }
-      .hover-scale-item:hover {
-        transform: scale(1.05);
-        transition: transform 0.3s ease;
-      }
-      .hoverzoom {
-        transition: transform 0.3s ease;
-      }
-      .hoverzoom:hover {
-        transform: scale(1.05);
-      }
-      .swiper-button-next,
-      .swiper-button-prev {
-        color: rgba(255, 255, 255, 0.8);
-      }
-      .swiper-button-next:after,
-      .swiper-button-prev:after {
-        font-size: 18px;
-      }
-      .swiper-pagination-bullet {
-        background: rgba(255, 255, 255, 0.5);
-      }
-      .swiper-pagination-bullet-active {
-        background: white;
-      }
-    </style>
   </head>
   <body class="bg-gray-50">
     <!-- Top Navigation -->
@@ -457,25 +410,17 @@
 
       <!-- Section Title -->
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h2
-          style="font-size: 45px; color: #016738; font-family: 'AdorNoirrit'"
-          class="text-4xl text-green-800 mb-4"
-        >
-          বিশেষ মূল্য
-        </h2>
-        <!-- <div class="w-24 h-1 bg-green-600 mx-auto"></div> -->
+        <h2 class="deal-title text-4xl text-green-800 mb-4">বিশেষ মূল্য</h2>
       </div>
 
       <!-- Product Cards Section -->
       <section
-        style="display: flex; align-items: center; justify-content: center"
-        class="mx-auto mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-emerald-100"
+        class="discount-section mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-emerald-100"
       >
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Product Card 1 -->
           <div
-            style="width: 300px"
-            class="discount-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+            class="discount-card-width bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
           >
             <div class="flex">
               <!-- Product Image -->
@@ -510,8 +455,7 @@
 
           <!-- Product Card 2 -->
           <div
-            style="width: 300px"
-            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+            class="discount-card-width bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
           >
             <div class="flex">
               <!-- Product Image -->
@@ -544,8 +488,7 @@
 
           <!-- Product Card 3 -->
           <div
-            style="width: 300px"
-            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+            class="discount-card-width bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
           >
             <div class="flex">
               <!-- Product Image -->
@@ -580,52 +523,22 @@
 
       <!-- New Section Title -->
       <div
-        class="all_prd_btn_title max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-white"
-        style="
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        "
+        class="all-product-btn-title max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-white"
       >
         <div class="all_product_title">
-          <h3
-            class="deal_title"
-            style="font-size: 45px; color: #016738; font-family: 'AdorNoirrit'"
-          >
-            আমাদের পণ্য
-          </h3>
+          <h3 class="deal-title text-green-800 text-4xl">আমাদের পণ্য</h3>
         </div>
         <div class="all_product_btn">
-          <a
-            href="/shop"
-            class="product_link"
-            style="
-              text-decoration: none;
-              color: #fff;
-              font-size: 16px;
-              transition: all 0.3s ease-in-out;
-              background: #016738;
-              padding: 10px 25px;
-              border-radius: 5px;
-              border: #016738;
-              width: 100%;
-              display: flex;
-              justify-content: center;
-            "
-            >সকল পণ্য</a
-          >
+          <a href="/shop" class="product-link"> সকল পণ্য </a>
         </div>
       </div>
 
       <!-- New Product Cards Section -->
       <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-white">
-        <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center"
-        >
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
           <!-- New Product Card 1 -->
           <div
-            style="width: 300px; height: 500px"
-            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+            class="product-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 w-full max-w-[280px]"
           >
             <div class="aspect-square overflow-hidden">
               <img
@@ -638,8 +551,9 @@
               <h3 class="text-xl font-semibold text-gray-800 mb-3 text-center">
                 Arnica Shampoo
               </h3>
-              <div class="flex items-center justify-center mb-4">
+              <div class="flex items-center justify-center mb-4 gap-2">
                 <span class="text-2xl font-bold text-green-600">৳ 190</span>
+                <span class="text-lg previous-price">৳ 250</span>
               </div>
               <button
                 class="w-full bg-green-600 text-white py-3 px-4 rounded text-lg font-medium hover:bg-green-700 transition-colors duration-200"
@@ -651,8 +565,7 @@
 
           <!-- New Product Card 2 -->
           <div
-            style="width: 300px; height: 500px"
-            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+            class="product-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 w-full max-w-[280px]"
           >
             <div class="aspect-square overflow-hidden">
               <img
@@ -665,8 +578,9 @@
               <h3 class="text-xl font-semibold text-gray-800 mb-3 text-center">
                 Arnica Shampoo
               </h3>
-              <div class="flex items-center justify-center mb-4">
+              <div class="flex items-center justify-center mb-4 gap-2">
                 <span class="text-2xl font-bold text-green-600">৳ 190</span>
+                <span class="text-lg previous-price">৳ 250</span>
               </div>
               <button
                 class="w-full bg-green-600 text-white py-3 px-4 rounded text-lg font-medium hover:bg-green-700 transition-colors duration-200"
@@ -678,8 +592,7 @@
 
           <!-- New Product Card 3 -->
           <div
-            style="width: 300px; height: 500px"
-            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+            class="product-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 w-full max-w-[280px]"
           >
             <div class="aspect-square overflow-hidden">
               <img
@@ -692,8 +605,36 @@
               <h3 class="text-xl font-semibold text-gray-800 mb-3 text-center">
                 Arnica Shampoo
               </h3>
-              <div class="flex items-center justify-center mb-4">
+              <div class="flex items-center justify-center mb-4 gap-2">
                 <span class="text-2xl font-bold text-green-600">৳ 190</span>
+                <span class="text-lg previous-price">৳ 250</span>
+              </div>
+              <button
+                class="w-full bg-green-600 text-white py-3 px-4 rounded text-lg font-medium hover:bg-green-700 transition-colors duration-200"
+              >
+                অর্ডার করুন
+              </button>
+            </div>
+          </div>
+
+          <!-- New Product Card 4 -->
+          <div
+            class="product-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 w-full max-w-[280px]"
+          >
+            <div class="aspect-square overflow-hidden">
+              <img
+                src="images/product.jpg"
+                alt="Arnica Shampoo"
+                class="w-full h-full object-cover hoverzoom"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-800 mb-3 text-center">
+                Arnica Shampoo
+              </h3>
+              <div class="flex items-center justify-center mb-4 gap-2">
+                <span class="text-2xl font-bold text-green-600">৳ 190</span>
+                <span class="text-lg previous-price">৳ 250</span>
               </div>
               <button
                 class="w-full bg-green-600 text-white py-3 px-4 rounded text-lg font-medium hover:bg-green-700 transition-colors duration-200"
