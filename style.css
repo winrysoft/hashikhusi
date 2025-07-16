@@ -150,3 +150,8 @@ body {
 .product-card-height {
   height: 500px;
 }
+
+/* footer logo */
+.footerlogo {
+  width: 160px;
+}
