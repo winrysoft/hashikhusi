@@ -994,6 +994,51 @@ Whatsapp 💬
           closeLightbox();
         }
       });
+
+       // Mobile menu functionality
+      const hamburgerBtn = document.getElementById("hamburger-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const closeMenuBtn = document.getElementById("close-menu");
+
+      hamburgerBtn.addEventListener("click", () => {
+        hamburgerBtn.classList.toggle("hamburger-active");
+        mobileMenu.classList.add("active");
+      });
+
+      closeMenuBtn.addEventListener("click", () => {
+        hamburgerBtn.classList.remove("hamburger-active");
+        mobileMenu.classList.remove("active");
+      });
+
+      // Close menu when clicking outside
+      mobileMenu.addEventListener("click", (e) => {
+        if (e.target === mobileMenu) {
+          hamburgerBtn.classList.remove("hamburger-active");
+          mobileMenu.classList.remove("active");
+        }
+      });
+
+      // Handle window resize
+      window.addEventListener("resize", () => {
+        if (window.innerWidth >= 768) {
+          hamburgerBtn.classList.remove("hamburger-active");
+          mobileMenu.classList.remove("active");
+        }
+      });
+
+      // Initialize Swiper
+      const swiper = new Swiper(".swiper-container", {
+        loop: true,
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+        },
+        effect: "fade",
+        fadeEffect: {
+          crossFade: true,
+        },
+        speed: 800,
+      });
     </script>
   </body>
 </html>
