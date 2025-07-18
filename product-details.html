@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>হাসিখুসি - আপনার সেবায়</title>
-
+    <title>Product Detail Section</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css" />
     <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css"
     />
+    <link rel="stylesheet" href="style.css">
     <!-- font awesome -->
     <link
       rel="stylesheet"
@@ -19,7 +18,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
     <script>
       tailwind.config = {
         theme: {
@@ -57,13 +55,74 @@
         },
       };
     </script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <style>
+      .hoverzoom {
+        transition: transform 0.3s ease;
+      }
+      .hoverzoom:hover {
+        transform: scale(1.05);
+      }
+      .previous-price {
+        text-decoration: line-through;
+        color: #9ca3af;
+      }
+      .star-rating {
+        color: #fbbf24;
+      }
+
+      /* Lightbox Styles */
+      .lightbox {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+      }
+
+      .lightbox.active {
+        display: flex;
+      }
+
+      .lightbox-content {
+        max-width: 90%;
+        max-height: 90%;
+        position: relative;
+      }
+
+      .lightbox-image {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: -40px;
+        right: 0;
+        color: white;
+        font-size: 30px;
+        font-weight: bold;
+        cursor: pointer;
+        background: none;
+        border: none;
+      }
+
+      .lightbox-close:hover {
+        opacity: 0.7;
+      }
+
+      .thumbnail-active {
+        border: 2px solid #16a34a;
+      }
+    </style>
   </head>
-  <body class="bg-gray-50">
-    <!-- Top Navigation -->
+  <body class="bg-gray-50 font-bangla">
+      <!-- Top Navigation -->
     <nav class="bg-white shadow-md">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
@@ -215,7 +274,7 @@
               >Combo Offer</a
             >
             <a
-              href="product-details.html"
+              href="#"
               class="hover:bg-green-700 px-3 py-2 rounded text-sm font-medium"
               >অর্গানিক</a
             >
@@ -352,182 +411,330 @@
         </div>
       </div>
     </div>
+    <!-- Product Detail Section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Product Images Section -->
+        <div class="lg:col-span-1">
+          <!-- Main Product Image -->
+          <div class="mb-4">
+            <div
+              class="aspect-square bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 cursor-pointer"
+              onclick="openLightbox('./images/2.jpg')"
+            >
+              <img
+                src="./images/2.jpg"
+                alt="প্রিমিয়াম হলুদ গুঁড়া"
+                class="w-full h-full object-cover hoverzoom"
+                id="mainImage"
+              />
+            </div>
+          </div>
 
-    <!-- Main Content -->
-    <main class="">
-      <!-- Hero Section -->
-      <div
-        class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
-      >
-        <!-- Left Side - Automatic Slider -->
-        <div class="relative">
-          <div
-            class="swiper-container h-96 rounded-lg overflow-hidden shadow-lg"
-          >
-            <div class="swiper-wrapper">
-              <!-- Slide 1 -->
-              <div class="swiper-slide flex items-center justify-center">
-                <img
-                  src="./images/slide1.png"
-                  alt=""
-                  class="w-full h-full object-cover"
-                />
-              </div>
-
-              <!-- Slide 2 -->
-              <div class="swiper-slide flex items-center justify-center">
-                <img
-                  src="images/slide2.jpg"
-                  alt=""
-                  class="w-full h-full object-cover"
-                />
-              </div>
-
-              <!-- Slide 3 -->
-              <div class="swiper-slide flex items-center justify-center">
-                <img
-                  src="./images/slide3.jpg"
-                  alt=""
-                  class="w-full h-full object-cover"
-                />
-              </div>
+          <!-- Thumbnail Images -->
+          <div class="flex gap-2 overflow-x-auto">
+            <div
+              class="min-w-[80px] h-20 bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 cursor-pointer thumbnail-active"
+              onclick="changeMainImage('./images/3.jpg', this)"
+            >
+              <img
+                src="./images/3.jpg"
+                alt="Thumbnail 1"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div
+              class="min-w-[80px] h-20 bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 cursor-pointer"
+              onclick="changeMainImage('./images/2.jpg', this)"
+            >
+              <img
+                src="./images/2.jpg"
+                alt="Thumbnail 2"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div
+              class="min-w-[80px] h-20 bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 cursor-pointer"
+              onclick="changeMainImage('./images/product.jpg', this)"
+            >
+              <img
+                src="./images/product.jpg"
+                alt="Thumbnail 3"
+                class="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
 
-        <!-- Right Side - Static Image with Hover Effect -->
-        <div class="h-96 rounded-lg overflow-hidden shadow-lg">
-          <img
-            src="./images/65915d3e44191.png"
-            class="hoverzoom w-full h-full object-cover"
-            alt=""
-          />
+        <!-- Product Details Section -->
+        <div class="lg:col-span-1">
+          <h1 class="text-2xl lg:text-3xl font-bold text-gray-800 mb-4">
+            প্রিমিয়াম গুঁড়া মরিচ (বোটা ও বিচি বাদে)
+          </h1>
+
+          <!-- Star Rating -->
+          <div class="flex items-center mb-4">
+            <div class="flex star-rating">
+              <span>★</span>
+              <span>★</span>
+              <span>★</span>
+              <span>★</span>
+              <span>★</span>
+            </div>
+            <span class="ml-2 text-sm text-gray-600">( 5 star )</span>
+          </div>
+
+          <!-- Price -->
+          <div class="mb-4">
+            <!-- <span class="text-sm text-gray-500 previous-price">৳৩০০</span> -->
+            <span class="text-2xl font-bold text-brand-green-600 ml-2"
+              >৳ 250</span
+            >
+            <span class="text-sm text-gray-600 ml-2">- 500 gm</span>
+          </div>
+
+          <!-- Description -->
+          <p class="text-gray-700 mb-6 leading-relaxed">
+           কৃষকের কাছ থেকে সংগৃহিত মরিচ পরিষ্কার করে রোদে শুকিয়ে নিজেদের তত্ত্বাবধানে ভাঙিয়ে প্রিমিয়াম প্যাকেজিং এর মাধ্যমে কাস্টমারের জন্য প্রস্তুত করা হচ্ছে কেনাকাটার প্রিমিয়াম কোয়ালিটির খাঁটি মরিচ গুড়া বোটা ও বিচি বাদে ।
+          </p>
+
+          <!-- Quantity Selector -->
+          <div class="mb-6">
+            <div class="flex items-center space-x-3">
+              <button
+                class="w-8 h-8 bg-brand-green-600 text-white rounded-full flex items-center justify-center hover:bg-brand-green-700 transition-colors"
+                onclick="decreaseQuantity()"
+              >
+                <span class="text-lg">-</span>
+              </button>
+              <input
+                type="text"
+                value="1"
+                id="quantity"
+                class="w-12 text-center border border-gray-300 rounded py-1"
+                readonly
+              />
+              <button
+                class="w-8 h-8 bg-brand-green-600 text-white rounded-full flex items-center justify-center hover:bg-brand-green-700 transition-colors"
+                onclick="increaseQuantity()"
+              >
+                <span class="text-lg">+</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Size Options -->
+          <div class="mb-6">
+            <div class="flex gap-2">
+              <button
+                class="px-4 py-2 bg-brand-green-600 text-white rounded font-medium hover:bg-brand-green-700 transition-colors size-option active"
+              >
+                500 Gm
+              </button>
+              <button
+                class="px-4 py-2 bg-gray-200 text-gray-700 rounded font-medium hover:bg-gray-300 transition-colors size-option"
+                onclick="toggleSize(this)"
+              >
+                1 Kg
+              </button>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="space-y-3 mb-6">
+            <div class="flex gap-3">
+              <button
+                class="flex-1 bg-brand-green-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-brand-green-700 transition-colors"
+              >
+                কার্ট যোগ করুন
+              </button>
+              <button
+                class="flex-1 bg-brand-green-700 text-white py-3 px-6 rounded-lg font-medium hover:bg-brand-green-800 transition-colors"
+              >
+                অর্ডার করুন
+              </button>
+            </div>
+
+            <!-- Phone Numbers -->
+            <div class="flex gap-3">
+              <button
+                class="flex-1 bg-brand-green-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-brand-green-700 transition-colors"
+              >
+                01743522154
+              </button>
+              <button
+                class="flex-1 bg-brand-green-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-brand-green-700 transition-colors"
+              >
+                01615421979
+              </button>
+            </div>
+          </div>
+
+          <!-- Social Media -->
+          <div class="mb-6">
+            <p class="text-gray-700 mb-2">শেয়ার করুন</p>
+            <div class="flex space-x-3">
+              <a
+                href="#"
+                class="w-10 h-10 bg-brand-green-600 rounded-lg flex items-center justify-center hover:bg-brand-green-700 transition-colors"
+              >
+                <i class="fa-brands fa-square-facebook text-white"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-brand-green-600 rounded-lg flex items-center justify-center hover:bg-brand-green-700 transition-colors"
+              >
+                <i class="fa-brands fa-youtube text-white"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-brand-green-600 rounded-lg flex items-center justify-center hover:bg-brand-green-700 transition-colors"
+              >
+                <i class="fa-brands fa-instagram text-white"></i>
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <!-- Section Title -->
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h2 class="deal-title text-4xl text-green-800 mb-4">বিশেষ মূল্য ছাড়</h2>
-      </div>
+        <!-- Related Products Section -->
+        <div class="lg:col-span-1">
+          <h2 class="text-xl font-bold text-gray-800 mb-4">প্রয়োজনীয় পণ্য</h2>
 
-      <!-- Product Cards Section -->
-      <section
-        class="discount-section mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-emerald-100"
-      >
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Product Card 1 -->
-          <div
-            class="discount-card-width bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
-          >
-            <div class="flex">
-              <!-- Product Image -->
-              <div class="w-32 h-32 flex-shrink-0">
-                <img
-                  src="images/product.jpg"
-                  alt="Product 1"
-                  class="w-full h-full object-cover"
-                />
-              </div>
-              <!-- Product Details -->
-              <div class="flex-1 p-4 flex flex-col justify-between">
-                <div>
-                  <h3 class="font-semibold text-gray-800 mb-2">
-                    প্রিমিয়াম সরষে খই
-                  </h3>
-                  <div class="flex items-center space-x-2 mb-3">
-                    <span class="text-green-600 font-bold text-lg">৳ 600</span>
-                    <span class="text-gray-400 line-through text-sm"
-                      >৳ 750</span
-                    >
-                  </div>
+          <div class="space-y-4">
+            <!-- Related Product 1 -->
+            <div
+              class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200"
+            >
+              <div class="flex">
+                <div class="w-20 h-20 flex-shrink-0">
+                  <img
+                    src="./images/product.jpg"
+                    alt="এভোকে অর্গিন সরিষার তেল"
+                    class="w-full h-full object-cover"
+                  />
                 </div>
-                <button
-                  class="bg-green-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-green-700 transition-colors duration-200"
-                >
-                  পণ্য দেখুন
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Product Card 2 -->
-          <div
-            class="discount-card-width bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
-          >
-            <div class="flex">
-              <!-- Product Image -->
-              <div class="w-32 h-32 flex-shrink-0">
-                <img
-                  src="images/product.jpg"
-                  alt="Product 2"
-                  class="w-full h-full object-cover"
-                />
-              </div>
-              <!-- Product Details -->
-              <div class="flex-1 p-4 flex flex-col justify-between">
-                <div>
-                  <h3 class="font-semibold text-gray-800 mb-2">সরিষার তেল</h3>
-                  <div class="flex items-center space-x-2 mb-3">
-                    <span class="text-green-600 font-bold text-lg">৳ 330</span>
-                    <span class="text-gray-400 line-through text-sm"
+                <div class="flex-1 p-3">
+                  <h3 class="font-medium text-gray-800 mb-1">
+                    এভোকে অর্গিন সরিষার তেল
+                  </h3>
+                  <div class="flex items-center mb-2">
+                    <span class="text-brand-green-600 font-bold">৳ 330</span>
+                    <span class="text-sm text-gray-500 previous-price ml-2"
                       >৳ 380</span
                     >
                   </div>
+                  <button
+                    class="w-full bg-brand-green-600 text-white py-2 px-3 rounded text-sm font-medium hover:bg-brand-green-700 transition-colors"
+                  >
+                    অর্ডার করুন
+                  </button>
                 </div>
-                <button
-                  class="bg-green-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-green-700 transition-colors duration-200"
-                >
-                  পণ্য দেখুন
-                </button>
               </div>
             </div>
-          </div>
 
-          <!-- Product Card 3 -->
-          <div
-            class="discount-card-width bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
-          >
-            <div class="flex">
-              <!-- Product Image -->
-              <div class="w-32 h-32 flex-shrink-0">
-                <img
-                  src="images/product.jpg"
-                  alt="Product 3"
-                  class="w-full h-full object-cover"
-                />
-              </div>
-              <!-- Product Details -->
-              <div class="flex-1 p-4 flex flex-col justify-between">
-                <div>
-                  <h3 class="font-semibold text-gray-800 mb-2">বাদাম</h3>
-                  <div class="flex items-center space-x-2 mb-3">
-                    <span class="text-green-600 font-bold text-lg">৳ 700</span>
-                    <span class="text-gray-400 line-through text-sm"
+            <!-- Related Product 2 -->
+            <div
+              class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200"
+            >
+              <div class="flex">
+                <div class="w-20 h-20 flex-shrink-0">
+                  <img
+                    src="./images/3.jpg"
+                    alt="মিশ্র মশলা পাওডার গরম মশলা"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div class="flex-1 p-3">
+                  <h3 class="font-medium text-gray-800 mb-1">
+                    মিশ্র মশলা পাওডার গরম মশলা
+                  </h3>
+                  <div class="flex items-center mb-2">
+                    <span class="text-brand-green-600 font-bold">৳ 700</span>
+                    <span class="text-sm text-gray-500 previous-price ml-2"
                       >৳ 900</span
                     >
                   </div>
+                  <button
+                    class="w-full bg-brand-green-600 text-white py-2 px-3 rounded text-sm font-medium hover:bg-brand-green-700 transition-colors"
+                  >
+                    অর্ডার করুন
+                  </button>
                 </div>
-                <button
-                  class="bg-green-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-green-700 transition-colors duration-200"
-                >
-                  পণ্য দেখুন
-                </button>
+              </div>
+            </div>
+
+            <!-- Related Product 3 -->
+            <div
+              class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200"
+            >
+              <div class="flex">
+                <div class="w-20 h-20 flex-shrink-0">
+                  <img
+                    src="./images/2.jpg"
+                    alt="প্রিমিয়াম গুঁড়া মরিচ"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div class="flex-1 p-3">
+                  <h3 class="font-medium text-gray-800 mb-1">
+                    প্রিমিয়াম গুঁড়া মরিচ (লেবাও ও বিন্দা)
+                  </h3>
+                  <div class="flex items-center mb-2">
+                    <span class="text-brand-green-600 font-bold">৳ 300</span>
+                    <span class="text-sm text-gray-500 previous-price ml-2"
+                      >৳ 380</span
+                    >
+                  </div>
+                  <button
+                    class="w-full bg-brand-green-600 text-white py-2 px-3 rounded text-sm font-medium hover:bg-brand-green-700 transition-colors"
+                  >
+                    অর্ডার করুন
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      <!-- New Section Title -->
+      <!-- Product Description Section -->
+      <div class="mt-12">
+        <button
+          class="bg-brand-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-brand-green-700 transition-colors"
+        >
+          পণ্যের বিবরণ
+        </button>
+
+        <div
+          class="mt-4 p-6 bg-white rounded-lg shadow-md border border-gray-200"
+        >
+          <p class="text-gray-700 leading-relaxed">
+            কৃষকের কাছ থেকে সংগৃহিত মরিচ পরিষ্কার করে রোদে শুকিয়ে নিজেদের তত্ত্বাবধানে ভাঙিয়ে প্রিমিয়াম প্যাকেজিং এর মাধ্যমে কাস্টমারের জন্য প্রস্তুত করা হচ্ছে কেনাকাটার প্রিমিয়াম কোয়ালিটির খাঁটি মরিচ গুড়া বোটা ও বিচি বাদে ।
+✅মরিচের গুঁড়া: পরিপক্ক মরিচ শুকানোর পর বোটা ও বিচি বাদ দিয়ে মরিচের গুঁড়া তৈরি করা হয়।
+সবধরণের তরকারি এবং মাংসে মরিচ গুড়া খুব বেশি ব্যবহৃত হয়। যেকোন রান্না খাবারে খুব সহজে স্বাদ বাড়ানোর জন্য মরিচের গুঁড়া এর জুড়ি নেই। অন্যান্য খাবারের মধ্যে সসেও গুড়া মরিচ ব্যবহৃত হয়। যেমন চিলি সস।
+
+☎️ বিস্তারিত জানতে আমাদের পেজে মেসেজ করুনঃ KhatiBhai Page Messenger
+
+অথবা ফোন করুনঃ
+📳 01743-522154
+
+Whatsapp 💬
++8801743522154
+          </p>
+        </div>
+      </div>
+    </div>
+
+     <!-- New Section Title -->
       <div
         class="all-product-btn-title max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-white"
       >
         <div class="all_product_title">
-          <h3 class="deal-title text-green-800 text-4xl">আমাদের পণ্য</h3>
+          <h3 class="deal-title text-green-800 text-4xl">রিলেটেড প্রোডাক্ট</h3>
         </div>
-        <div class="all_product_btn">
+        <!-- <div class="all_product_btn">
           <a href="/shop" class="product-link"> সকল পণ্য </a>
-        </div>
+        </div> -->
       </div>
 
       <!-- New Product Cards Section -->
@@ -710,209 +917,82 @@
 
       </section>
 
-      <!-- footer -->
-      <footer
-        class="bg-gradient-to-r from-brand-green-800 via-brand-green-700 to-brand-green-600 text-white"
-      >
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-            <!-- Brand Section -->
-            <div class="space-y-4">
-              <div class="flex items-center space-x-3">
-                <div class="rounded-lg flex items-center justify-center">
-                  <img
-                    src="logos/Hasi khusi logo-03.png"
-                    alt="Brand Logo"
-                    class="footerlogo"
-                  />
-                </div>
-                <!-- <span class="text-xl font-bold font-bangla">খাঁটি ভাই</span> -->
-              </div>
-              <p class="text-sm leading-relaxed font-bangla text-gray-200">
-                ভেজালের বিরুদ্ধে খাঁটি জিনিস খুঁজে পাওয়া খুবই দুঃসাধ্য। আর
-                আপনার খাদ্য পণ্য খাঁটি ভেজাল হয়, তাহলে তো আর কথাই নেই। আমাদের ৮
-                টি মৌলিক আধিকারের মধ্যে ১ টা হচ্ছে খাদ্য, তাই আধিকার আপনি
-                সঠিকভাবে পূরণ করতে পারছেন না। তাই আপনার পাশে শক্তি ও সাহস হয়ে
-                দাঁড়িয়েছু - হাসিখুসি পরিবার।
-              </p>
-            </div>
-
-            <!-- Quick Links -->
-            <div class="space-y-4">
-              <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-              <ul class="space-y-2">
-                <li>
-                  <a
-                    href="#"
-                    class="text-gray-200 hover:text-brand-green-400 transition-colors duration-200"
-                    >Shop</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="text-gray-200 hover:text-brand-green-400 transition-colors duration-200"
-                    >About Us</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="text-gray-200 hover:text-brand-green-400 transition-colors duration-200"
-                    >Contact Us</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="text-gray-200 hover:text-brand-green-400 transition-colors duration-200"
-                    >Privacy Policy</a
-                  >
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    class="text-gray-200 hover:text-brand-green-400 transition-colors duration-200"
-                    >Return Policy</a
-                  >
-                </li>
-              </ul>
-            </div>
-
-            <!-- Support Section -->
-            <div class="space-y-4">
-              <h3 class="text-lg font-semibold mb-4">Support</h3>
-
-              <!-- Phone -->
-              <div class="flex items-center space-x-3">
-                <div
-                  class="w-8 h-8 bg-brand-green-500 rounded-full flex items-center justify-center"
-                >
-                  <i class="fa-solid fa-phone"></i>
-                </div>
-                <div>
-                  <p class="text-sm font-medium">Phone</p>
-                  <p class="text-sm text-gray-200">01********4</p>
-                </div>
-              </div>
-
-              <!-- Email -->
-              <div class="flex items-center space-x-3">
-                <div
-                  class="w-8 h-8 bg-brand-green-500 rounded-full flex items-center justify-center"
-                >
-                  <i class="fa-solid fa-envelope"></i>
-                </div>
-                <div>
-                  <p class="text-sm font-medium">Email</p>
-                  <p class="text-sm text-gray-200 break-all">test@gmail.com</p>
-                </div>
-              </div>
-
-              <!-- Address -->
-              <div class="flex items-start space-x-3">
-                <div
-                  class="w-8 h-8 bg-brand-green-500 rounded-full flex items-center justify-center mt-1"
-                >
-                  <i class="fa-solid fa-map-location-dot"></i>
-                </div>
-                <div>
-                  <p class="text-sm font-medium">Address</p>
-                  <p class="text-sm text-gray-200">
-                    Nil Ratan Dhar Road, Jashore - 7400, Bangladesh
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Social Media and Copyright -->
-          <div class="mt-8 pt-8 border-t border-gray-400 border-opacity-30">
-            <div
-              class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
-            >
-              <!-- Social Media Icons -->
-              <div class="flex space-x-4">
-                <a
-                  href="#"
-                  class="w-10 h-10 rounded-lg flex items-center justify-center hover:bg-brand-green-700 transition-colors duration-200"
-                >
-                  <i class="fa-brands fa-square-facebook"></i>
-                </a>
-                <a
-                  href="#"
-                  class="w-10 h-10 rounded-lg flex items-center justify-center hover:bg-brand-green-700 transition-colors duration-200"
-                >
-                  <i class="fa-brands fa-youtube"></i>
-                </a>
-                <a
-                  href="#"
-                  class="w-10 h-10 rounded-lg flex items-center justify-center hover:bg-brand-green-700 transition-colors duration-200"
-                >
-                  <i class="fa-brands fa-instagram"></i>
-                </a>
-              </div>
-
-              <!-- Copyright -->
-              <div class="text-center md:text-right">
-                <p class="text-sm text-gray-300">
-                  © 2024
-                  <span class="text-brand-green-400 font-semibold"
-                    >হাসিখুসি</span
-                  >
-                  - All Right Reserved.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </main>
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+      <div class="lightbox-content">
+        <button class="lightbox-close" onclick="closeLightbox()">
+          &times;
+        </button>
+        <img
+          id="lightboxImage"
+          class="lightbox-image"
+          src=""
+          alt="Product Image"
+        />
+      </div>
+    </div>
 
     <script>
-      // Mobile menu functionality
-      const hamburgerBtn = document.getElementById("hamburger-btn");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const closeMenuBtn = document.getElementById("close-menu");
+      // Quantity functions
+      function increaseQuantity() {
+        const quantityInput = document.getElementById("quantity");
+        let currentValue = parseInt(quantityInput.value);
+        quantityInput.value = currentValue + 1;
+      }
 
-      hamburgerBtn.addEventListener("click", () => {
-        hamburgerBtn.classList.toggle("hamburger-active");
-        mobileMenu.classList.add("active");
-      });
-
-      closeMenuBtn.addEventListener("click", () => {
-        hamburgerBtn.classList.remove("hamburger-active");
-        mobileMenu.classList.remove("active");
-      });
-
-      // Close menu when clicking outside
-      mobileMenu.addEventListener("click", (e) => {
-        if (e.target === mobileMenu) {
-          hamburgerBtn.classList.remove("hamburger-active");
-          mobileMenu.classList.remove("active");
+      function decreaseQuantity() {
+        const quantityInput = document.getElementById("quantity");
+        let currentValue = parseInt(quantityInput.value);
+        if (currentValue > 1) {
+          quantityInput.value = currentValue - 1;
         }
-      });
+      }
 
-      // Handle window resize
-      window.addEventListener("resize", () => {
-        if (window.innerWidth >= 768) {
-          hamburgerBtn.classList.remove("hamburger-active");
-          mobileMenu.classList.remove("active");
+      // Size toggle function
+      function toggleSize(button) {
+        // Remove active class from all size options
+        document.querySelectorAll(".size-option").forEach((btn) => {
+          btn.classList.remove("active");
+          btn.classList.remove("bg-brand-green-600", "text-white");
+          btn.classList.add("bg-gray-200", "text-gray-700");
+        });
+
+        // Add active class to clicked button
+        button.classList.add("active");
+        button.classList.remove("bg-gray-200", "text-gray-700");
+        button.classList.add("bg-brand-green-600", "text-white");
+      }
+
+      // Main image change function
+      function changeMainImage(imageSrc, thumbnailElement) {
+        document.getElementById("mainImage").src = imageSrc;
+
+        // Remove active class from all thumbnails
+        document.querySelectorAll(".thumbnail-active").forEach((thumb) => {
+          thumb.classList.remove("thumbnail-active");
+        });
+
+        // Add active class to clicked thumbnail
+        thumbnailElement.classList.add("thumbnail-active");
+      }
+
+      // Lightbox functions
+      function openLightbox(imageSrc) {
+        document.getElementById("lightboxImage").src = imageSrc;
+        document.getElementById("lightbox").classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        document.getElementById("lightbox").classList.remove("active");
+        document.body.style.overflow = "auto";
+      }
+
+      // Close lightbox on escape key
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          closeLightbox();
         }
-      });
-
-      // Initialize Swiper
-      const swiper = new Swiper(".swiper-container", {
-        loop: true,
-        autoplay: {
-          delay: 4000,
-          disableOnInteraction: false,
-        },
-        effect: "fade",
-        fadeEffect: {
-          crossFade: true,
-        },
-        speed: 800,
       });
     </script>
   </body>
